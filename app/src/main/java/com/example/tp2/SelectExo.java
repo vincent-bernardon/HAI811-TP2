@@ -1,6 +1,8 @@
 package com.example.tp2;
 
 import android.content.Intent;
+import android.hardware.Sensor;
+import android.hardware.SensorManager;
 import android.os.Bundle;
 import android.widget.Button;
 
@@ -9,6 +11,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.List;
 
 public class SelectExo extends AppCompatActivity {
     @Override
@@ -24,7 +28,7 @@ public class SelectExo extends AppCompatActivity {
 
         Button buttonExo2 = findViewById(R.id.button_exo1);
         buttonExo2.setOnClickListener(v -> {
-            Intent intent = new Intent(SelectExo.this, MainActivity.class);
+            Intent intent = new Intent(SelectExo.this, Ex1.class);
             startActivity(intent);
         });
 
