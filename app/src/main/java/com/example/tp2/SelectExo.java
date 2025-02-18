@@ -26,9 +26,15 @@ public class SelectExo extends AppCompatActivity {
             return insets;
         });
 
-        Button buttonExo2 = findViewById(R.id.button_exo1);
-        buttonExo2.setOnClickListener(v -> {
+        Button buttonExo1 = findViewById(R.id.button_exo1);
+        buttonExo1.setOnClickListener(v -> {
             Intent intent = new Intent(SelectExo.this, Ex1.class);
+            startActivity(intent);
+        });
+
+        Button buttonExo2 = findViewById(R.id.button_exo2);
+        buttonExo2.setOnClickListener(v -> {
+            Intent intent = new Intent(SelectExo.this, Ex2.class);
             startActivity(intent);
         });
 
