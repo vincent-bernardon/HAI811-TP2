@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pays">pays
+    <item>France</item>
+    <item>Allemagne</item>
+    <item>Italie</item>
+    <item>Espagne</item>
+    </string-array>
+
+    <string-array name="populations">
+        <item>68 million</item>
+        <item>84 million</item>
+        <item>59 million</item>
+        <item>48 million</item>
+    </string-array>
+
+</resources>
