@@ -6,6 +6,7 @@ import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.hardware.camera2.CameraManager;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -51,6 +52,18 @@ public class Ex6 extends AppCompatActivity implements SensorEventListener {
         TextView textView = findViewById(R.id.textView);
         textView.setText("Distance : " + distance +" cm");
         System.out.println("Distance : " + distance);
+
+        ImageView imageView = findViewById(R.id.imageView);
+
+        if (distance >= 10) {
+            imageView.setVisibility(ImageView.GONE);
+        } else {
+            imageView.setVisibility(ImageView.VISIBLE);
+            int size = (int) ((10 - distance) * 100);
+            imageView.getLayoutParams().width = size;
+            imageView.getLayoutParams().height = size;
+            imageView.requestLayout();
+        }
 
 
 

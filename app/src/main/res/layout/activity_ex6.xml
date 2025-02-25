@@ -14,4 +14,13 @@
         android:id="@+id/textView"
         />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_below="@id/textView"
+        android:contentDescription="Distance"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ouverturc_oip" />
+
 </RelativeLayout>

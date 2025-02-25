@@ -5,6 +5,7 @@ import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -15,9 +16,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class Ex7 extends AppCompatActivity {
+public class Ex7 extends AppCompatActivity implements LocationListener{
+    private Button button;
+    private TextView textview;
     private LocationManager locationManager;
-    private LocationListener locationListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,23 +32,28 @@ public class Ex7 extends AppCompatActivity {
             return insets;
         });
 
-        TextView locationTextView = findViewById(R.id.localisation);
+        textview = findViewById(R.id.localisation);
+        button = findViewById(R.id.button);
 
-        locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
-        locationListener = new LocationListener() {
-            @Override
-            public void onLocationChanged(@NonNull Location location) {
-                locationTextView.setText("Latitude: " + location.getLatitude() + "\nLongitude: " + location.getLongitude());
-            }
-        };
-
-        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
-        } else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
-        }
+        button.setOnClickListener(v -> {
+            getLocation();
+        });
 
 
     }
 
+    private void getLocation() {
+        try{ //try catch car on demande l'autorisation de l'utilisateur
+            locationManager= (LocationManager) getSystemService(LOCATION_SERVICE);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 5, this);
+        }catch (SecurityException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onLocationChanged(@NonNull Location location) {
+        textview.setText("Latitude: " + location.getLatitude() + "\nLongitude: " + location.getLongitude());
+
+    }
 }
