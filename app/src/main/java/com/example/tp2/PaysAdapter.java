@@ -15,7 +15,7 @@ import java.util.List;
 public class PaysAdapter extends RecyclerView.Adapter<PaysAdapter.ViewHolder> {
     private List<String> pays;
     private List<String> populations;
-    private FragmentActivity activity;
+    private FragmentActivity activity; //ne pas oublier le FragmentActivity sinon on ne pourra pas utiliser le getSupportFragmentManager et donc pas afficher le fragment
 
     public PaysAdapter(List<String> pays, List<String> populations, FragmentActivity activity) {
         this.pays = pays;
