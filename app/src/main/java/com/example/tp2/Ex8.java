@@ -45,8 +45,13 @@ public class Ex8 extends AppCompatActivity {
         ArrayList<String> populations = new ArrayList<>();
         populations.addAll(Arrays.asList(getResources().getStringArray(R.array.populations)));
 
+        ArrayList<String> capitales = new ArrayList<>();
+        capitales.addAll(Arrays.asList(getResources().getStringArray(R.array.capitales)));
 
-        recyclerView.setAdapter(new PaysAdapter(pays, populations));
+        ArrayList<String> fete = new ArrayList<>();
+        fete.addAll(Arrays.asList(getResources().getStringArray(R.array.fete_national)));
+
+        recyclerView.setAdapter(new PaysAdapter(pays, populations, capitales, fete));
 
 
     }
@@ -54,10 +59,14 @@ public class Ex8 extends AppCompatActivity {
     public static class PaysAdapter extends RecyclerView.Adapter<PaysAdapter.ViewHolder> {
         private final List<String> pays;
         private final List<String> populations;
+        private final List<String> capitales;
+        private final List<String> fete;
 
-        public PaysAdapter(List<String> pays, List<String> populations) {
+        public PaysAdapter(List<String> pays, List<String> populations, List<String> capitales, List<String> fete) {
             this.pays = pays;
             this.populations = populations;
+            this.capitales = capitales;
+            this.fete = fete;
         }
 
         @NonNull
@@ -69,7 +78,7 @@ public class Ex8 extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.bind(pays.get(position), populations.get(position));
+            holder.bind(pays.get(position), populations.get(position), capitales.get(position), fete.get(position));
         }
 
         @Override
@@ -85,13 +94,15 @@ public class Ex8 extends AppCompatActivity {
                 button = itemView.findViewById(R.id.pays);
             }
 
-            public void bind(String pays, String population) {
+            public void bind(String pays, String population, String capitale, String fete) {
                 button.setText(pays);
                 button.setOnClickListener(v -> {
                     Intent intent = new Intent(v.getContext(), Ex8_detail.class);
                     Bundle bundle = new Bundle();
-                    bundle.putString("pays_selec", pays);
-                    bundle.putString("population", population);
+                    bundle.putString("pays_selec", pays + " : ");
+                    bundle.putString("population", "Population : "+ population);
+                    bundle.putString("capitale", "Capitale : "+capitale);
+                    bundle.putString("fete_national", "Fête nationale : "+fete);
                     intent.putExtras(bundle);
                     v.getContext().startActivity(intent);
                 });

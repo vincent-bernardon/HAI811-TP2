@@ -40,10 +40,12 @@ public class Ex9 extends AppCompatActivity {
             ListPaysFragment listPaysFragment = new ListPaysFragment();
             DetailPayFragment detailPayFragment = new DetailPayFragment();
 
-            // Set arguments for DetailPayFragment
+            // Argument pour le fragment de détail
             Bundle args = new Bundle();
-            args.putString("pays_selec", "France");
-            args.putString("population", "68 million");
+            args.putString("pays_selec", "France : ");
+            args.putString("population", "Population : 68 million");
+            args.putString("capital", "Capitale : Paris");
+            args.putString("fete_national", "Fête nationale : 14 juillet");
             detailPayFragment.setArguments(args);
 
             fragmentTransaction.add(R.id.list_pays, listPaysFragment);
@@ -57,8 +59,8 @@ public class Ex9 extends AppCompatActivity {
 
     }
 
-    public void displaySelectedCountry(String pays, String population) {
-        System.out.println("Selected Country: " + pays + ", Population: " + population);
+    public void displaySelectedCountry(String pays, String population, String capitale, String fete) {
+        System.out.println("Selected Country: " + pays + ", Population : " + population + ", Capitale : " + capitale + ", Fete : " + fete);
     }
 
 

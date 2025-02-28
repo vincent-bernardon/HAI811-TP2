@@ -14,4 +14,18 @@
         <item>48 million</item>
     </string-array>
 
+    <string-array name="capitales">
+        <item>Paris</item>
+        <item>Berlin</item>
+        <item>Rome</item>
+        <item>Madrid</item>
+    </string-array>
+
+    <string-array name="fete_national">
+        <item>14 juillet</item>
+        <item>3 octobre</item>
+        <item>2 juin</item>
+        <item>12 octobre</item>
+    </string-array>
+
 </resources>

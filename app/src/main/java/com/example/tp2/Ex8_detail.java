@@ -24,11 +24,13 @@ public class Ex8_detail extends AppCompatActivity {
 
         String pays = getIntent().getStringExtra("pays_selec");
         TextView textView = findViewById(R.id.textview);
-        textView.setText(pays+" : ");
+        textView.setText(pays);
 
         String population = getIntent().getStringExtra("population");
+        String capitale = getIntent().getStringExtra("capitale");
+        String fete = getIntent().getStringExtra("fete_national");
         TextView textView2 = findViewById(R.id.textview2);
 
-        textView2.setText("Population : "+population);
+        textView2.setText(population+"\n"+capitale+"\n"+fete);
     }
 }

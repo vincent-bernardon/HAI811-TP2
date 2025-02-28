@@ -25,7 +25,13 @@ public class ListPaysFragment extends Fragment {
         ArrayList<String> populations = new ArrayList<>();
         populations.addAll(Arrays.asList(getResources().getStringArray(R.array.populations)));
 
-        recyclerView.setAdapter(new PaysAdapter(pays, populations, getActivity()));
+        ArrayList<String> capitales = new ArrayList<>();
+        capitales.addAll(Arrays.asList(getResources().getStringArray(R.array.capitales)));
+
+        ArrayList<String> fete = new ArrayList<>();
+        fete.addAll(Arrays.asList(getResources().getStringArray(R.array.fete_national)));
+
+        recyclerView.setAdapter(new PaysAdapter(pays, populations,capitales, fete, getActivity()));
         return view;
     }
 }
